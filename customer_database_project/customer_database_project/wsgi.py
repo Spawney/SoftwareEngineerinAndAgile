@@ -11,10 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
+from whitenoise import WhiteNoise
 
-    application = get_wsgi_application()
-    application = DjangoWhiteNoise(application)
+application = get_wsgi_application()
+application = WhiteNoise(application)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'customer_database_project.settings')
 

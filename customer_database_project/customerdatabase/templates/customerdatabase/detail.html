@@ -1,0 +1,35 @@
+{% extends "customerdatabase/layout.html" %}
+{% block title %}
+    Order Detail
+{% endblock %}
+{% block content %}
+{% if user.is_staff %}
+    <h2>Order Details</h2>
+
+        <table class="message_list">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Customer</th>
+                <th>Item</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ data.entryDate | date:'d M Y' }}</td>
+                    <td>{{ data.entryDate | time:'H:i:s' }}</td>
+                    <td>
+                        {{ data.customerName }}
+                    </td>
+                    <td>{{ data.customerOrder.orderItem }}</td>
+                    <td>{{ data.customerOrder.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+{% else %}
+<p>You are not logged in. Please Log In to continue.</p>
+<a class="nav-link" href="{% url 'admin:index' %}"> Log In </a>
+{% endif %}
+{% endblock %}

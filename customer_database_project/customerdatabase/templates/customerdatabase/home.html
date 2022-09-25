@@ -27,9 +27,27 @@
                     </td>
                     <td>{{ message.customerOrder.orderItem }}</td>
                     <td>{{ message.customerOrder.quantity }}</td>
-                    <td><a href="{% url 'admin:index' %}" class="save btn btn-default">Edit Order</a></td>
+                    <td><a href="{% url 'update' message.id %}" class="save btn btn-default">Edit Order</a></td>
+                    {% if user.is_superuser%}
+                    <td><a href="{% url 'delete' message.id %}" class="save btn btn-default">Delete Order</a></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
+            <tr class="pagination">
+                {% if page_obj.has_previous %}
+                    <td>
+                        <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+                    </td>
+                {% endif %}
+                <td class="">
+                    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                </td>
+                {% if page_obj.has_next %}
+                    <td>
+                        <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+                    </td>
+                {% endif %}
+                </tr>
             </tbody>
         </table>
     {% else %}

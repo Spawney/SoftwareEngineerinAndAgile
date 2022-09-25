@@ -12,5 +12,8 @@ home_list_view = views.HomeListView.as_view(
 urlpatterns = [
     path("", home_list_view, name="home"),
     path("order/", views.order, name="order"),
+    path("update/<id>", views.update, name="update"),
+    path("detail/<id>", views.detail, name="detail"),
+    path('delete/<id>', views.delete, name="delete" ),
 ]
 

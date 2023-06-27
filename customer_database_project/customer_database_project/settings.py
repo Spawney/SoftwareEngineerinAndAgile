@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-3em4n(4o^ml-#$ioh7opn0%zbzay(31qldu49%63ich*xey__g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['synxcustomerdatabase.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['synxcustomerdatabase.herokuapp.com', '127.0.0.1','softwareengineeringanddevops.azurewebsites.net']
 
 
 # Application definition

@@ -50,7 +50,7 @@ stages:
     - task: CmdLine@2
       displayName: 'Install pytest'
       inputs:
-        script: 'pip install pytest && pytest customer_database_project\customerdatabase --junitxml=../TestResults/test-results.xml && pip install pycmd && py.cleanup customer_database_project\customerdatabase/'
+        script: 'pip install pytest && pytest customer_database_project/customerdatabase --junitxml=../TestResults/test-results.xml && pip install pycmd && py.cleanup customer_database_project/customerdatabase'
     
     - task: PublishTestResults@2
       displayName: 'Test'

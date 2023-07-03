@@ -62,7 +62,7 @@ ROOT_URLCONF = 'customer_database_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / "templates" ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -153,3 +153,8 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://softwareengineeringanddevops.azurewebsites.net']
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+RECAPTCHA_PUBLIC_KEY = "6Lci1tYmAAAAAITrpEidNpvfGr4819Q3d4N5oWVG"
+RECAPTCHA_PRIVATE_KEY = "6Lci1tYmAAAAAMdVIyS5ylZzUbE12lNAEcE4BI3A"

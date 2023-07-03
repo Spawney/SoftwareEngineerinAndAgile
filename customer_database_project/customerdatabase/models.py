@@ -9,11 +9,16 @@ ORDER_CHOICES = (
 class CustomerOrderDetails(models.Model):
     orderItem = models.CharField("Item", max_length=6, choices=ORDER_CHOICES, default='client')
     quantity = models.PositiveIntegerField("Quantity")
+    class Meta:
+        app_label = 'details'
     
 class CustomerOrderEntry(models.Model):
-    customerName = models.CharField("Customer Name", max_length=300)
+    customerName = models.CharField("Customer Name", max_length=200)
     entryDate = models.DateTimeField("date added")
     customerOrder = models.ForeignKey(CustomerOrderDetails, on_delete=models.CASCADE)
+
+    class Meta:
+        app_label = 'orderentry'
 
     def __str__(self):
         """Returns a string representation of a message."""

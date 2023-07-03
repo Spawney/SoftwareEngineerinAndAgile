@@ -11,12 +11,12 @@
 <div class="navbar">
     <a href="{% url 'home' %}" class="navbar-brand">Home</a>
     {% if user.is_authenticated %}
-    <a href="{% url 'admin:logout' %}" class="navbar-item"> Log Out </a>
+    <a href="{% url 'logout' %}" class="navbar-item"> Log Out </a>
         {% if user.is_staff %}
         <a href="{% url 'order' %}" class="navbar-item">Add Order</a>
         {% endif %}
     {% else %}
-    <a href="{% url 'admin:index' %}" class="navbar-item"> Log In </a>
+    <a href="{% url 'login' %}" class="navbar-item"> Log In </a>
     {% endif %}
    
 </div>
@@ -26,7 +26,7 @@
     {% endblock %}
     <hr/>
     <footer>
-        <p>© 2022 Synectics</p>
+        <p>© 2023 Synectics</p>
     </footer>
 </div>
 </body>

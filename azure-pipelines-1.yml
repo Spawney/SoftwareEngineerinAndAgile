@@ -46,7 +46,12 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
-      
+
+    - task: CmdLine@2
+      displayName: 'Install Django'
+      inputs:
+        script: 'pip install django'
+
     - task: CmdLine@2
       displayName: 'Install pytest'
       inputs:

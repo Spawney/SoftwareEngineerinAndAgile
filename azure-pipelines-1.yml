@@ -53,12 +53,12 @@ stages:
         script: 'pip install django'
 
     - task: CmdLine@2
-      displayName: 'Install pytest'
+      displayName: 'Install pytest and run tests'
       inputs:
         script: 'pip install pytest && pytest customer_database_project/customerdatabase --junitxml=../TestResults/test-results.xml && pip install pycmd && py.cleanup customer_database_project/customerdatabase'
     
     - task: PublishTestResults@2
-      displayName: 'Test'
+      displayName: 'Publish Test Results'
       inputs:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/test-results.xml'

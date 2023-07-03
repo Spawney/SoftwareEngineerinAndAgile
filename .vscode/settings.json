@@ -6,7 +6,8 @@
         "-s",
         "./customer_database_project",
         "-p",
-        "*test*.py"
+        "*test*.py",
+        "test_*.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,

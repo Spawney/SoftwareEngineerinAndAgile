@@ -17,13 +17,13 @@ class HomeListView(ListView):
         context = super(HomeListView, self).get_context_data(**kwargs)
         
         return context
-
+    
 def order(request):
         if request.method == "POST":
             pform = CustomerOrderEntryForm(request.POST, instance=CustomerOrderEntry())
             cforms = CustomerOrderDetailsForm(request.POST, instance=CustomerOrderDetails())
-            if pform.is_valid():
-                if(request.user.has_perm('customerdatabase.add_bar')):
+            if pform.is_valid() & cforms.is_valid():
+                if(request.user.has_perm('customerdatabase.add_customerorderentry')):
                     message = pform.save(commit=False)
                     message.entryDate = datetime.now()
                     order_details = cforms.save(commit=False)

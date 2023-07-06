@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.contrib.auth.models import User, Permission
-from django.conf import settings
 from customerdatabase.forms import CustomerOrderEntryForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password

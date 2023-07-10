@@ -33,7 +33,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['synxcustomerdatabase.herokuapp.com', '127.0.0.1','softwareengineeringanddevops.azurewebsites.net']
 
-
+current_working_directory = os.getcwd()
+print(current_working_directory)
 # Application definition
 
 STATIC_ROOT = BASE_DIR / 'static_collected'
@@ -48,6 +49,25 @@ INSTALLED_APPS = [
     'customerdatabase',
     'password_validators',
 ]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": current_working_directory + "//debug.log",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "level": "INFO",
+            "propagate": True,
+        },
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
